@@ -1,0 +1,45 @@
+img {
+    display: block;
+    height: auto;
+    width: 400px;
+    margin: 50px auto;
+    border: 8px solid coral;
+}
+
+#senses {
+    text-decoration: underline;
+    margin-left: 40px;
+}
+ul {
+    margin-left: 20px;
+}
+ol {
+    list-style: upper-roman;
+}
+ol+h2 {
+    margin: auto;
+    display: block;
+    text-align: center;
+}
+
+td {
+    border: 1px solid black;
+}
+
+thead {
+    width: 100%;
+}
+
+ table {
+    width: 80%;
+    margin: auto;
+ }
+th {
+    color: red;
+    text-align: center;
+    width: 100%;
+    border: 1px solid red;
+}
+.empty-row {
+    height: 1em;
+}
