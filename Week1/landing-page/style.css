@@ -1,0 +1,77 @@
+* {
+    font-family: "Roboto" , Verdana, sans-serif
+}
+body {
+    margin: 0;
+    padding: 0;
+}
+header {
+    background-color: rgb(246, 246, 246);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 40px;
+}
+header h3 {
+    margin-left: 200px;
+}
+header button {
+    margin-right: 200px;
+}
+button {
+    background-color: rgb(1, 158, 255);
+    color: white;
+    text-align: center;
+    border: 0;
+    height: 30px;
+    border-radius: 3px;
+    padding: 0 20px;
+}
+
+input {
+    height: 27px;
+    width: 300px;
+    margin-right: 5px;
+}
+section {
+    display: flex;
+    justify-content: center;
+}
+form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+section:nth-child(2) {
+    align-items: center;
+    height: 400px;
+    background-image: url("/Users/AnatolyZ/Desktop/Di-Bootcamp/Week1/landing-page/pexels-kellie-churchman-1001682.jpg");
+}
+#main-section {
+    width: 50%;
+    color: white;
+}
+section:nth-child(3) div {
+    text-align: center;
+    background-color: rgb(246, 246, 246);
+}
+section:nth-child(3) p {
+    color: gray;
+    margin-bottom: 50px;
+}
+section:nth-child(3) span {
+    margin-top: 100px;
+    transform-origin: top center;
+    transform: scale(3);
+    color: rgb(1, 158, 255);;
+}
+section:nth-child(3) h3 {
+    margin-top: 50px;
+}
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 100,
+  'GRAD' -25,
+  'opsz' 48
+}
