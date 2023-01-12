@@ -1,0 +1,25 @@
+header {
+    width: 100%;
+    height: 70px;
+    background-color: rgba(0, 0, 0, 0.892);
+    justify-content: space-between;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+li {
+    display: inline;
+    list-style: none;
+    text-transform: uppercase;
+    margin-right: 50px;
+}
+header div {
+    margin-left: 40px;
+    text-transform: uppercase;
+    transform: scale(3);
+    transform-origin: left center;
+}
+section {
+    background-image: url(168069577-2f570d08-61d3-49d8-b7dd-c4b9192aaf68.jpeg);
+}
