@@ -38,6 +38,16 @@ section {
 section > h1 {
     text-transform: uppercase;
     font-size: 4em;
+    /* An animation with disappearence added here */
+    animation-name: disappear;
+    animation-duration: 4s;
+    animation-direction: alternate;
+    animation-iteration-count: infinite;
+    animation-timing-function: steps(13);
+    overflow: hidden;
+    white-space: nowrap;
+    font-family: monospace;
+    
 }
 section > p {
     width: 60%;
@@ -46,4 +56,8 @@ section > p {
 footer {
     height: 70px;
     background-color: rgba(0, 0, 0, 0.892);
+}
+@keyframes disappear {
+    from { width: 0px;}
+    to {width: 403px;}
 }
