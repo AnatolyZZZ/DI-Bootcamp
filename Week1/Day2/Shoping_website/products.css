@@ -10,14 +10,34 @@ section {
 }
 .product {
     display: inline-block;
+    position: relative;
     height: 400px;
-    width: 200px; 
+    width: 200px;
+    z-index: 3; 
 }
-.product .image {
+.product:hover {
+    z-index: 1;
+}
+
+.image {
     width: 100%;
     height: 250px;
     background-size: cover;
     position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: inherit;
+}
+
+.three-icons {
+    position: relative;
+    z-index: 2;
+}
+.three-icons span {
+    background-color: white;
+    margin: 10px;
+    z-index: 2;
 }
 .product:nth-child(4n + 1) .image {
     background-image: url(ShoppingProjectSetup_Week1Day2/image1.png)    
