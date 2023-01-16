@@ -29,7 +29,7 @@ input:not([type="checkbox"]){
     height: 30px;
     background-color: lightgray;
     border: 0;
-    margin-top: 10px;
+    margin: 10px 0;
 }
 form a, label {
     text-decoration: none;
@@ -70,11 +70,16 @@ hr {
     font-size: 2em;
     margin: 10px 10px 40px 10px;
 }
+.left-side i:hover {
+cursor: pointer;
+}
+
 .right-side {
     color: white;
     display: flex;
     justify-content: center;
     background-image: linear-gradient(to bottom right, rgb(50, 5, 92), rgb(165, 43, 226));
+    padding: 10px;
 }
 .person {
     font-size: 5em;
@@ -103,4 +108,15 @@ hr {
 }
 button:hover {
     cursor: pointer;
+}
+@media all and (max-width: 640px) {
+    body {
+        display: flex;
+        flex-direction: column;
+    }
+    .left-side, .right-side {
+        width: 100%;
+    }
+
+
 }
