@@ -1,0 +1,109 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+header {
+    width: 100%;
+    height: 70px;
+    background-color: rgba(0, 0, 0, 0.892);
+    justify-content: space-between;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+li {
+    display: inline;
+    list-style: none;
+    text-transform: uppercase;
+    margin-right: 50px;
+}
+header div {
+    margin-left: 40px;
+    text-transform: uppercase;
+    transform: scale(3);
+    transform-origin: left center;
+    margin-bottom: 0;
+}
+section {
+    margin-top: 0;
+    background-image: url(168069577-2f570d08-61d3-49d8-b7dd-c4b9192aaf68.jpeg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 300px;
+    padding-top: 100px;
+    padding-left: 50px;
+}
+section > h1 {
+    text-transform: uppercase;
+    /* font-size: 4em; */
+    /* An animation with disappearence added here */
+    /* animation-name: disappear;
+    animation-duration: 4s;
+    animation-direction: alternate;
+    animation-iteration-count: infinite;
+    animation-timing-function: steps(13);
+    overflow: hidden;
+    white-space: nowrap;
+    font-family: monospace; */
+    
+}
+section > p {
+    width: 60%;
+    font-size: 0.7em;
+}
+footer {
+    height: 70px;
+    background-color: rgba(0, 0, 0, 0.892);
+}
+@keyframes disappear {
+    from { width: 0px;}
+    to {width: 403px;}
+}
+
+@media all and (max-width: 600px) {
+    h1 {
+        font-size: 20px;
+    }
+    nav {
+        background-color: yellow;
+        color: black;
+    }
+    
+}
+
+@media all and (min-width: 600px) {
+    h1 {
+        font-size: 25px;
+    }
+    nav {
+        background-color: lightgreen;
+        color: black;
+    }
+}
+@media all and (min-width: 768px) {
+    h1 {
+        font-size: 35px;
+    }
+}
+@media all and (min-width: 992px) {
+    nav {
+        background-color: red;
+        color: white;
+    }
+    section h1, p {
+        display: inline-block;
+    }
+    section h1 {
+        margin-right: 20px;
+    }
+    }
+
+@media all and (min-width: 1200px) {
+    nav {
+        background-color: black;
+        color: white;
+    }
+}
+
