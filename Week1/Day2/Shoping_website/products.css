@@ -35,6 +35,7 @@ section {
     z-index: 2;
 }
 .three-icons span {
+    position: relative;
     background-color: white;
     margin: 10px;
     z-index: 2;

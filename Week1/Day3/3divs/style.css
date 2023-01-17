@@ -1,0 +1,27 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.container {
+    display: flex;
+    flex-direction: column;
+    padding: 3px;
+    align-items: center;
+    height: 500px;
+    border: 1px solid red;
+    gap: 30px;
+}
+.container div {
+    background-color: aqua;
+    width: 100%;
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#box2 {
+    background-color: aqua;
+    width: 80%;
+    flex-grow: 3;
+}
