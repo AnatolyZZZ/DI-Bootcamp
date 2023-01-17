@@ -1,0 +1,28 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+section {
+    width: 95%;
+    height: 95vw;
+    border: 1px solid black;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(16, 1fr);
+    grid-template-rows: repeat(16, 1fr);
+    padding: 3px;
+    gap: 3px
+}
+/* div {
+    border: 1px solid black;
+} */
+div:nth-child(3n + 1) {
+    background-color: orange;
+}
+div:nth-child(3n + 2) {
+    background-color: peachpuff;
+}
+div:nth-child(3n) {
+    background-color: brown;
+}
