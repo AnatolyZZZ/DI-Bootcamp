@@ -1,0 +1,28 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+div {
+    border: 1px solid black;
+}
+div:nth-child(2n+1) {
+    background-color: rosybrown;
+}
+div:nth-child(2n+0) {
+    background-color: aqua;
+}
+div:nth-child(7) {
+    background-color: yellow;
+    grid-column: 1 / span 2;
+}
+
+section {
+    display: grid;
+    padding: 30px;
+    height: 500px;
+    width: 100vw;
+    grid-template-columns: 1fr 2fr;
+    grid-template-rows: repeat(4, 1fr);
+    gap: 20px 30px;
+}
