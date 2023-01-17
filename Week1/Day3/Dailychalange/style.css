@@ -1,0 +1,35 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.box {
+    height: 100px;
+    width: 100px;
+    background-color: yellow;
+    border: 1px solid black;
+
+}
+body {
+    display: flex;
+    justify-content: space-between;
+    width: 95vw;
+    margin: auto;
+}
+
+.leftside, .rigthside {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 450px;
+}
+
+.middle {
+    display: flex;
+    /* gap: 80px; */
+    align-items: center;
+    padding: 0 80px;
+    justify-content: space-between;
+    width: calc(100vw - 200px);
+}
