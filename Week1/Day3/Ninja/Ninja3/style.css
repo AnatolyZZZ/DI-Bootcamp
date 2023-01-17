@@ -3,26 +3,30 @@
     padding: 0;
     box-sizing: border-box;
 }
-section {
-    width: 95%;
-    height: 95vw;
-    border: 1px solid black;
+.main-container {
+    border: 2px solid rgba(255, 112, 112, 0.521);
+    width: 96%;
     margin: auto;
+}
+section {
+    width: 100%;
+    height: 6vw;
     display: grid;
     grid-template-columns: repeat(16, 1fr);
-    grid-template-rows: repeat(16, 1fr);
-    padding: 3px;
-    gap: 3px
+    margin: auto;
 }
 /* div {
     border: 1px solid black;
 } */
-div:nth-child(3n + 1) {
-    background-color: orange;
+.odd div:nth-child(2n + 1) {
+    background-color: white;
 }
-div:nth-child(3n + 2) {
-    background-color: peachpuff;
+.odd div:nth-child(2n + 2) {
+    background-color: rgba(255, 112, 112, 0.521);
 }
-div:nth-child(3n) {
-    background-color: brown;
+.even div:nth-child(2n + 1) {
+    background-color: rgba(255, 112, 112, 0.521);
+}
+.even div:nth-child(2n + 2) {
+    background-color: rgba(123, 35, 35, 0.521);;
 }
