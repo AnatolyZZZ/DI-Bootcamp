@@ -5,8 +5,8 @@
 }
 
 .box {
-    height: 100px;
-    width: 100px;
+    height: calc(min(16vh , 16vw));
+    width: calc(min(16vh , 16vw));
     background-color: yellow;
     border: 1px solid black;
 
@@ -14,7 +14,7 @@
 body {
     display: flex;
     justify-content: space-between;
-    width: 95vw;
+    width: 98vw;
     margin: auto;
 }
 
@@ -22,14 +22,14 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    height: 450px;
+    height: calc(min(100vh , 100vh));
 }
 
 .middle {
     display: flex;
     /* gap: 80px; */
     align-items: center;
-    padding: 0 80px;
-    justify-content: space-between;
-    width: calc(100vw - 200px);
+    padding: 0px;
+    justify-content: space-around;
+    width: calc(100vw - min(32vh , 32vw));
 }
