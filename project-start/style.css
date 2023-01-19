@@ -1,8 +1,16 @@
+* {
+    margin: auto 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    display: flex;
+    flex-direction: column;
+}
 .zone {
     padding:30px 50px;
-    margin:40px 60px;
+    /* margin:40px 60px; */
     cursor:pointer;
-    display:inline-block;
     color:#FFF;
     font-size:2em;
     border-radius:4px;
@@ -17,11 +25,73 @@
     box-shadow:rgba(0,0,0,0.8) 0px 5px 15px, inset rgba(0,0,0,0.15) 0px -10px 20px;
 }
 
+header {
+    width: 100vw;
+    position: fixed;
+    height: 97px;
+    z-index: 2;
+}
+/* to push main block under header */
+.main-block {
+    position: relative;
+    top: 97px;
+}
+
+/* nav starts here */
+header ul {
+    list-style: none;
+    display: flex;
+}
+
+header a {
+    text-decoration: none;
+    color: white;
+    margin-right: 1em;
+}
+
+header a:hover {
+    color: orange;
+}
+.push {
+    margin-left: auto;
+}
+/* nav ends */
+
+/* cover start */
+.cover {
+    height: 50vh;
+}
+
+.cover h1, h2{
+ margin: 0 auto;
+}
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+/* cover end  */
+
+/* projects grid start*/
+.projects {
+    grid-template-columns: repeat(3 1fr);
+    grid-template-rows: 1fr 1fr;
+}
+
+.black-box {
+    width: 25vmin;
+    height: 25vmin;
+    background-color: black;
+    display: inline-block;
+}
+/* projects grid end*/
+
 /*https://paulund.co.uk/how-to-create-shiny-css-buttons*/
 /***********************************************************************
  *  Green Background
  **********************************************************************/
-.green{
+.green {
     background: #56B870; /* Old browsers */
     background: -moz-linear-gradient(top, #56B870 0%, #a5c956 100%); /* FF3.6+ */
     background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#56B870), color-stop(100%,#a5c956)); /* Chrome,Safari4+ */
@@ -29,7 +99,10 @@
     background: -o-linear-gradient(top, #56B870 0%,#a5c956 100%); /* Opera 11.10+ */
     background: -ms-linear-gradient(top, #56B870 0%,#a5c956 100%); /* IE10+ */
     background: linear-gradient(top, #56B870 0%,#a5c956 100%); /* W3C */
+
 }
+
+
 
 /***********************************************************************
  *  Red Background
@@ -42,6 +115,7 @@
     background: -o-linear-gradient(top, #C655BE 0%,#cf0404 100%); /* Opera 11.10+ */
     background: -ms-linear-gradient(top, #C655BE 0%,#cf0404 100%); /* IE10+ */
     background: linear-gradient(top, #C655BE 0%,#cf0404 100%); /* W3C */
+
 }
 
 /***********************************************************************
@@ -55,6 +129,9 @@
     background: -o-linear-gradient(top, #F3AAAA 0%,#febf04 100%); /* Opera 11.10+ */
     background: -ms-linear-gradient(top, #F3AAAA 0%,#febf04 100%); /* IE10+ */
     background: linear-gradient(top, #F3AAAA 0%,#febf04 100%); /* W3C */
+
+    height: 10vh;
+
 }
 
 /***********************************************************************
@@ -68,4 +145,17 @@
     background: -o-linear-gradient(top, #7abcff 0%,#60abf8 44%,#4096ee 100%); /* Opera 11.10+ */
     background: -ms-linear-gradient(top, #7abcff 0%,#60abf8 44%,#4096ee 100%); /* IE10+ */
     background: linear-gradient(top, #7abcff 0%,#60abf8 44%,#4096ee 100%); /* W3C */
+}
+
+@media all and (max-width: 660px) {
+    li{
+        font-size: 0.7em;
+    }
+    h1 {
+        font-size: 1em;
+    }
+    h2 {
+        font-size: 0.5em;
+    }
+
 }
