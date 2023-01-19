@@ -75,8 +75,9 @@ header a:hover {
 
 /* projects grid start*/
 .projects {
-    grid-template-columns: repeat(3 1fr);
-    grid-template-rows: 1fr 1fr;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px 50px;
 }
 
 .black-box {
@@ -84,6 +85,7 @@ header a:hover {
     height: 25vmin;
     background-color: black;
     display: inline-block;
+    margin: auto;
 }
 /* projects grid end*/
 
