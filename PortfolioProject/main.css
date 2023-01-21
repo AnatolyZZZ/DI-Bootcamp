@@ -165,7 +165,7 @@ header {
     border-radius: 6px;
   }
 
-/* experiance ends */
+/* experience ends */
 
 form {
    display: grid;
@@ -178,8 +178,12 @@ form {
 #name, #email, #company {
     grid-column: 2 / 4;
 }
-#label-message, #message {
-    grid-column: 1/-1;
+label {
+    justify-self: end;
+}
+#message {
+    grid-row: 4 / 6;
+    grid-column: 2/-1;
 }
 #submit {
     grid-column: 3 / 4;
