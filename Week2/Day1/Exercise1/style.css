@@ -1,0 +1,25 @@
+#internal {
+    background-color: aqua;
+    width: 100px;
+    height: 100px;
+    position: relative;
+    display: inline-block;
+    z-index: 1;
+    top: -50px;
+    left: -100px; 
+}
+#external {
+    background-color: orange;
+    position: relative;
+    display: inline-block;
+    z-index: 2;
+    height: 200px;
+    width: 200px;
+}
+#external:hover + #internal {
+    z-index: 3;
+}
+
+#internal:hover {
+    z-index: 3;
+}
