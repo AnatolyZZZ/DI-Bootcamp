@@ -11,29 +11,181 @@ html,h1,h2,h3,h4,h5,h6,a,button{
     border: 1px solid black;
 }
 
+
+/* nav starts here */
 #burger-menu {
     display: none;
 }
 
 nav ul {
     display: flex;
-    text-decoration: none;
     list-style-type: none;
+    align-items: center;
 }
 
-nav ul li a{
+nav a{
     margin: 0 1em;
     text-decoration: none;
     color: white;
     text-transform: uppercase;
 }
 
-header {
-    height: 70px;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    background-image: linear-gradient(rgb(255, 136, 0), rgb(255, 216, 75));
+.push {
+    margin-left: auto;
+}
+header button {
+    padding: 3px 10px;
 }
 
+header button:hover {
+    animation: rotate 0.3s ease-out;
+    animation-iteration-count: 1;
+    cursor: pointer;
+}
+
+@keyframes rotate {
+    0% {transform: rotate(0deg);}
+    33% {transform: rotate(-4deg);}
+    66% {transform: rotate(6deg);}
+    100% {transform: rotate(0deg);}   
+}
+/* nav ends here */
+
+header {
+    padding: 20px;
+    background-image: linear-gradient(rgb(255, 136, 0) 0%, rgb(255, 216, 75) 100%);
+}
+
+/* bio starts here */
+#bio {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 20px;
+}
+#resume {
+    width: calc( max(40vw, 240px));
+}
+
+#bio img {
+    width: calc( max(30vw, 180px));
+    border-radius: 50%;
+}
+/* bio ends here */
+/* skills  */
+#skills {
+    display: grid;
+    grid-template-columns: repeat(3 , 1fr);
+    grid-template-rows: 1fr 1fr;
+    justify-items: center;
+    gap: 20px 10px;
+}
+#skills img {
+    width: 20vmax;
+    height: 20vmax;
+} 
+
+#skills p {
+    text-align: center;
+}
+
+/* skills ends */
+/* projects  */
+#projects {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px 50px;
+    justify-items: center;
+}
+.project {
+    width: 200px;
+    background-color: aqua;
+    display: flex;
+    flex-direction: column;
+}
+.buttons {
+    display: flex;
+    justify-content: space-around;
+}
+
+.project img {
+    width: 80%;
+    margin: 10px auto;
+}
+
+.black-box {
+    width: 25vmin;
+    height: 25vmin;
+    background-color: black;
+    display: inline-block;
+    margin: auto;
+}
+/* projects end */
+
+/* experiance */
+#experience {
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+ 
+/* line */
+#experience::after {
+    content: '';
+    position: absolute;
+    width: 6px;
+    background-color: rgb(0, 0, 0);
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    margin-left: -3px;
+}
+
+  /* card with content */
+.card {
+    padding: 10px 40px;
+    position: relative;
+    background-color: inherit;
+    width: 50%;
+}
+
+.right {
+    left: 50%;
+}
+
+.left {
+    left: 0;
+}
+/* this is actual card */
+.content {
+    padding: 20px 30px;
+    background-color: white;
+    position: relative;
+    border-radius: 6px;
+  }
+
+/* experience ends */
+
+form {
+   display: grid;
+   grid-template-columns: 1fr 1fr 1fr;
+   grid-template-rows: 1fr 1fr 1fr 1fr 4fr 1fr;
+   gap: 10px;
+   padding: 10px 40px;
+}
+
+#name, #email, #company {
+    grid-column: 2 / 4;
+}
+label {
+    justify-self: end;
+}
+#message {
+    grid-row: 4 / 6;
+    grid-column: 2/-1;
+}
+#submit {
+    grid-column: 3 / 4;
+}
 

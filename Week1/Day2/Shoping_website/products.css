@@ -13,10 +13,10 @@ section {
     position: relative;
     height: 400px;
     width: 200px;
-    z-index: 3; 
+    z-index: 2; 
 }
     .product:hover + .three-icons  {
-    z-index: 4;
+    z-index: 3;
     }
 
 
@@ -39,7 +39,7 @@ section {
 .three-icons {
     position: relative;
     top: -300px;
-    z-index: 2;
+    z-index: 1;
 }
 
 .three-icons span {
@@ -47,11 +47,16 @@ section {
     background-color: white;
     margin: 10px;
 }
-
 .three-icons span:hover {
-    z-index: 4;
+    z-index: 3;
     background-color: green;
+    cursor: pointer;
 }
+
+.three-icons:hover {
+    z-index: 3;
+}
+
 
 .product:nth-child(4n + 1) .image {
     background-image: url(ShoppingProjectSetup_Week1Day2/image1.png)    

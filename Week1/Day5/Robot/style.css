@@ -3,9 +3,6 @@ h1 {
     font-family: 'Roboto', sans-serif;
 }
 
-.robots {
-}
-
 .head, 
 .left_arm, 
 .torso, 
@@ -23,9 +20,6 @@ h1 {
     margin-bottom: 10px;
 } 
 
-.eyes {
-
-}
 
 .head:hover {
     width: 300px;
