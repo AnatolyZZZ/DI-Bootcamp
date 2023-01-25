@@ -1,5 +1,7 @@
-let pattern = /[A-Za-z]/
+let pattern = /\d|W|\s/g
 
-let word = "jhy9ti"
+let word = "jhytij_hb"
+
+console.log(word.match(pattern));
 
 console.log(pattern.test(word));

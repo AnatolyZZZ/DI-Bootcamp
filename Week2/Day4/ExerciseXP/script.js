@@ -203,7 +203,7 @@ function hotelCost() {
 function rentalCarCost() {
     let nights = NaN;
     while (nights != nights || nights === null) {
-        nights = prompt("How many days?"); 
+        nights = prompt("How many days car rent?"); 
         if (nights != null) {
             nights = +nights;
         }
@@ -226,14 +226,14 @@ flightPrice = {
 }
 
 function planeRideCost() {
-    let destination = "London";
-    const pattern = /[A-Za-z]/;
-    //console.log(pattern.test(destination));
-    while (!pattern.test(destination)) {
-        console.log(pattern.test(destination));
+    let destination = "Lo ndon";
+    const pattern = /\d|W|\s|_/
+    //this pattern tests for any digit or space or any other special caracter);
+    while (pattern.test(destination)) {
+        // console.log(pattern.test(destination));
         destination = prompt("what is your destination?");
         if (destination === "stop") {
-            break;
+            break; // this is for case I acidentaly make infinate loop
         }
     }
     if (destination in flightPrice) {
