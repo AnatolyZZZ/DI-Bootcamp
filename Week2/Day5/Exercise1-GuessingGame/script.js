@@ -27,7 +27,7 @@ function getUserNumber () {
         while (attempsLeft > 0) {
         let userNumber = prompt ("Enter the number between 0 and 10");
 
-        if (userNumber === "") {
+        if (userNumber === "" || userNumber === null ) {
             attempsLeft --;
             alert(`Sorry Not a number, minus 1 attempt! Attemps left ${attempsLeft}`)
         } else {
