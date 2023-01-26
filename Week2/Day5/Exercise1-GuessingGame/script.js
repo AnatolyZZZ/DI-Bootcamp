@@ -26,16 +26,22 @@ attempsLeft = 3;
 function getUserNumber () {
         while (attempsLeft > 0) {
         let userNumber = prompt ("Enter the number between 0 and 10");
-        userNumber =+ userNumber;
-        if (isNaN(userNumber)) {
+
+        if (userNumber === "") {
             attempsLeft --;
             alert(`Sorry Not a number, minus 1 attempt! Attemps left ${attempsLeft}`)
-        }
-        else if (userNumber < 0 || userNumber > 10) {
-            attempsLeft --;
-            alert(`Sorry it’s not a good number, minus 1 attempt! Attemps left ${attempsLeft}`)
         } else {
-            return userNumber;
+            userNumber =+ userNumber;
+            if (isNaN(userNumber)) {
+                attempsLeft --;
+                alert(`Sorry Not a number, minus 1 attempt! Attemps left ${attempsLeft}`)
+            }
+            else if (userNumber < 0 || userNumber > 10) {
+                attempsLeft --;
+                alert(`Sorry it’s not a good number, minus 1 attempt! Attemps left ${attempsLeft}`)
+            } else {
+                return userNumber;
+            } 
         }
     }
     if (attempsLeft === 0) {
