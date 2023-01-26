@@ -24,21 +24,24 @@ attempsLeft = 3;
 }
 
 function getUserNumber () {
-    let userNumber = prompt ("Enter the number between 0 and 10");
-    userNumber =+ userNumber;
-
-    while (attempsLeft > 0) {
+        while (attempsLeft > 0) {
+        let userNumber = prompt ("Enter the number between 0 and 10");
+        userNumber =+ userNumber;
         if (isNaN(userNumber)) {
             attempsLeft --;
             alert(`Sorry Not a number, minus 1 attempt! Attemps left ${attempsLeft}`)
         }
-        if (userNumber < 0 || userNumber > 10) {
+        else if (userNumber < 0 || userNumber > 10) {
             attempsLeft --;
             alert(`Sorry it’s not a good number, minus 1 attempt! Attemps left ${attempsLeft}`)
         } else {
             return userNumber;
         }
     }
+    if (attempsLeft === 0) {
+        alert("out of chances");
+    }
+
 }
 
 function compareNumbers (userNumber, computerNumber) {
