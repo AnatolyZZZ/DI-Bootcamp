@@ -7,7 +7,7 @@
 // you will transform it to : ["Hello", "World", "in", "a", "frame"]
 // that will get displayed as:
 
-let words = prompt("write the words separeted with space");
+let words = prompt("write the words separeted with commas");
 
 let myarr =  words.split(',');
 
