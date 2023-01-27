@@ -1,7 +1,11 @@
 let pattern = /\d|W|\s/g
+let pattern2 = /^.$/
 
-let word = "jhytij_hb"
+let word = "jhytij_hb";
 
-console.log(word.match(pattern));
+let word2 = "o5t";
 
-console.log(pattern.test(word));
+console.log(word2.match(pattern2));
+
+console.log(pattern2.test(word2));
+
