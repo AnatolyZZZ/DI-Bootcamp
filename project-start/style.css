@@ -89,6 +89,12 @@ header a:hover {
 }
 /* projects grid end*/
 
+footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 /*https://paulund.co.uk/how-to-create-shiny-css-buttons*/
 /***********************************************************************
  *  Green Background
