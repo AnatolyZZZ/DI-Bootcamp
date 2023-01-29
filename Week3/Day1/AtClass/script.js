@@ -23,3 +23,13 @@ function addItem () {
 }
 
 addItem();
+
+// Write variables to get the value of the attributes of the specified link :
+
+// href
+// hreflang
+// rel
+// target
+// type
+const myLink = document.getElementsByTagName('p')[4].firstElementChild;
+console.log(myLink.getAttribute("href"));
