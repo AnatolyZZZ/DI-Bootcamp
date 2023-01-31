@@ -2,7 +2,10 @@ const billAmountInput = document.querySelector("#billamt");
 const qualitySelector = document.querySelector("#serviceQual");
 const nPeopleInput = document.querySelector("#peopleamt");
 const theForm = document.forms[0];
+const totalTip = document.querySelector("#totalTip");
 var total;
+
+totalTip.style.display = "none";
 
 theForm.addEventListener ("submit", evde);
 function evde (e) {
@@ -33,7 +36,7 @@ function calculateTip () {
     const total = (billAmount * serviceQuality) / numOfPeople;
     // total.toFixed(2);
     // console.log(total);
-    const totalTip = document.querySelector("#totalTip");
+    
     totalTip.style.display = "block";
 
     const spanTip = document.querySelector("#tip");
