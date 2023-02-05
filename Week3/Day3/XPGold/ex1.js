@@ -35,10 +35,17 @@ function drop (e) {
     const data = e.dataTransfer.getData("text/plain");
     const movedBox = document.getElementById(data);
     console.log(movedBox);
+    let _x = e.clientX;
+    let _y = e.clientY;
+    movedBox.style.left = _x + "px";
+    movedBox.style.top = _y + "px";
+    movedBox.style.position = "absolute";
     e.currentTarget.appendChild(movedBox);
 }
 
 target.addEventListener("dragover", dragOver);
 target.addEventListener("drop", drop, true);
+mainSec.addEventListener("dragover", dragOver);
+mainSec.addEventListener("drop", drop, true);
 
 createAlphabet ();
