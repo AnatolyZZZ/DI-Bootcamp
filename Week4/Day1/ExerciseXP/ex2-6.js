@@ -13,7 +13,8 @@ console.log (experiencePoints);
 isString = (arg) =>  typeof(arg) === "string"
 
 // isString = (arg) => {
-//     typeof(arg) === "string" ? return true : return false;
+//     let value =  typeof arg === "string" ? true : false;
+        //  return value;
 // }
 
 console.log(typeof('hello')); 
