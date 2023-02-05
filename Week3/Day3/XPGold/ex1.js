@@ -7,7 +7,7 @@ function createAlphabet () {
         const newBox = document.createElement("div");
         newBox.classList.add("box");
         const p = document.createElement("span");
-        p.appendChild(document.createTextNode(` &#${i};`))
+        p.appendChild(document.createTextNode(String.fromCharCode(i)));
         newBox.appendChild(p);
         mainSec.appendChild(newBox);
         newBox.addEventListener('dragstart', dragStart);
@@ -38,7 +38,7 @@ function drop (e) {
     e.currentTarget.appendChild(movedBox);
 }
 
-main.addEventListener("dragover", dragOver);
-main.addEventListener("drop", drop, true);
+target.addEventListener("dragover", dragOver);
+target.addEventListener("drop", drop, true);
 
 createAlphabet ();
