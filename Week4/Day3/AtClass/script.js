@@ -113,3 +113,14 @@ const students = [
 let score = students.reduce((acc, elt) => acc+elt.score, 0);
 console.log(score);
 
+const rainbow = ['red', 'orange', 'yellow'];
+
+// Cloning with array destructuring and spread operator
+const rainbowClone = [...rainbow];
+
+rainbow.push("violet");
+console.log(rainbow); //['red', 'orange', 'yellow', 'violet']
+console.log(rainbowClone); // ['red', 'orange', 'yellow']
+
+arr = [1, 2, 3, 4]
+console.log(arr.map(elt => elt*2));
