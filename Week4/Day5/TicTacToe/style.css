@@ -1,0 +1,25 @@
+/* * {
+    border: 1px solid black;
+} */
+.field {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5rem;
+    width: 99px;
+    height: 99px;
+    background-color: white;
+}
+#main {
+    display: grid;
+    padding: 3px;
+    margin: 20px auto;
+    width: 305px;
+    height: 305px;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    background-color: black;
+}
