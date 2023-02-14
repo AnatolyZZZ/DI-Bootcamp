@@ -53,3 +53,36 @@ function progress (event) {
     console.log("Upload: " + percentComplete + "% complete")
 }
 
+let categories = [];
+let randCat;
+
+htr.open("GET", "https://api.chucknorris.io/jokes/categories");
+htr.responseType="json";
+htr.send();
+htr.onload = function () {
+    console.log(htr.response);
+    categories = [...htr.response];
+    console.log(categories);
+    request2();
+}
+
+console.log(categories);
+setTimeout(console.log, 2000, categories);
+function request2 () {
+    htr2 = new XMLHttpRequest;
+    randCat = categories[Math.floor(Math.random() * categories.length)];
+    let str = `https://api.chucknorris.io/jokes/random?category=${randCat}`
+    console.log(str);
+    htr2.open("GET", str);
+    htr2.responseType="json";
+    htr2.send();
+    htr2.onload = function () {
+    p = document.createElement("p");
+    p.appendChild(document.createTextNode(htr2.response.value));
+    console.log(htr2.response.value);
+    main.appendChild(p);
+}
+}
+
+
+

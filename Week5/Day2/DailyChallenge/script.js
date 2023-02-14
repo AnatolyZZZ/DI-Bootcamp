@@ -5,25 +5,26 @@ const delall = document.querySelector("#delete");
 search.addEventListener("submit", addGif);
 
 let numberOfGifs = 0;
-objArr = [];
-
+// objArr = [];
+// create delete all buton and make it invisible
 const del = document.createElement("button");
 del.appendChild(document.createTextNode("Delete all"));
 del.addEventListener("click", deleteAll);
 delall.appendChild(del);
 del.style.display = "none";
-
+// deletes all in main section
 function deleteAll () {
     main.innerHTML = ""
     del.style.display = "none";
 }
-
-class giffWithButton {
+// class of gif and button delete related to it
+class GifWithButton {
     constructor (adress) {
         this.gif = this.createImg(adress);
         this.btn = this.createBtn();
         numberOfGifs++;
     }
+    // img didn work so used embed
     createImg (adress) {
         const img = document.createElement("embed");
             img.setAttribute("src", adress);
@@ -38,6 +39,7 @@ class giffWithButton {
         main.appendChild(btn);
         return btn;
     }
+    // first deletes targets sibling than target itself and decrease number of gifs on the page
     deleteThis (e) {
         console.log(e.target.previousElementSibling)
         e.target.previousElementSibling.remove();
@@ -48,9 +50,9 @@ class giffWithButton {
         }
     } 
 }
-
+// when adding gif on the page check if  button delete all should be visible
 function addToPage (adress) {
-    const gif = new giffWithButton(adress);
+    const gif = new GifWithButton(adress);
     if ( numberOfGifs > 0) {
         del.style.display = "block"
     }
