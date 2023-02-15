@@ -118,7 +118,7 @@ const morse = `{
 function toJs (str) {
  const p = new Promise ((resolve, reject) => {
     const morseJs = JSON.parse(str);
-    console.log(Object.keys(morseJs));
+    // console.log(Object.keys(morseJs));
     if (Object.keys(morseJs).length === 0) {
         reject ("Could't parse");
     } else {
@@ -133,7 +133,7 @@ function toMorse(morseJS) {
 const arrCoded = [];
  const p = new Promise ((resolve, reject) => {
     let userIput = prompt("Enter string");
-    console.log(userIput.split("")[0]);
+    // console.log(userIput.split("")[0]);
     for (let letter of userIput.split("")) {
         letter = letter.toLowerCase();
         if (!(letter in morseJS)) {
@@ -149,7 +149,7 @@ const arrCoded = [];
 
 function joinWords(morseTranslation) {
      const text = morseTranslation.reduce((acc, elt) => `${acc}\n${elt}`);
-     console.log(text);
+    //  console.log(text);
      const p = document.createElement('p');
      p.appendChild(document.createTextNode(text));
      main.appendChild(p);
@@ -158,8 +158,6 @@ function joinWords(morseTranslation) {
 // console.log(joinWords(['sjhbcx', 'hcb', "u"]))
 
 toJs(morse)
-.then( result => {
-    return toMorse(result)
-}).then (result => {
-    joinWords(result)
-});
+.then(result =>  toMorse(result))
+.then (result => joinWords(result))
+.catch(err => console.log(err));
