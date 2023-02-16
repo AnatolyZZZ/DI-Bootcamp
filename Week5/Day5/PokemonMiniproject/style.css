@@ -1,0 +1,94 @@
+#logo {
+    width: 200px;
+    display: inline-block;
+    position: absolute;
+    top: 225px;
+    left: 15px;
+}
+
+#foto {
+    position: absolute;
+    width: 300px;
+    height: 220px;
+    left: 295px;
+    top: 47px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+#info {
+    position: absolute;
+    width: 300px;
+    height: 220px;
+    left: 292px;
+    top: 377px;
+    white-space: pre-wrap;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.info-div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.poke-image {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+}
+
+.name {
+    font-weight: bold;
+}
+
+.invisible {
+    display: none; 
+}
+#left {
+    position: absolute;
+    width: 25px;
+    height: 23px;
+    left: 150px;
+    top: 467px;
+}
+
+#right {
+    position: absolute;
+    width: 25px;
+    height: 23px;
+    left: 225px;
+    top: 467px;
+}
+
+#green {
+    position: absolute;
+    width: 70px;
+    height: 70px;
+    left: 740px;
+    top: 445px;
+    border-radius: 50%;
+}
+
+#left, #right, #green {
+    cursor: pointer;
+}
+
+#main {
+    position: absolute;
+    background-image: url(pokedex.png);
+    display: inline-block;
+    width: 900px;
+    height: 637px;
+    left: 70px;
+}
+#how-to-use {
+    display: inline-block;
+    position: absolute;
+    left: 800px
+}
