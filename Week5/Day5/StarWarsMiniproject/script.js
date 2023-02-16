@@ -18,17 +18,28 @@ function addToPage (...pers) {
     person.append(n, g, h, b, w);
 }
 
+function displayProblem () {
+    const p = document.createElement("p");
+    p.appendChild(document.createTextNode("Something went wrong :("));
+    person.appendChild(p);
+}
+
 async function getCharacter() {
     loading.classList.remove("invisible");
     person.innerHTML = "";
     let num = Math.floor(Math.random() * 82) + 1;
-    const pers = await fetchOne(`https://www.swapi.tech/api/people/${num}`);
-    ({name ,height, gender, birth_year, homeworld} = pers)
-    const world = await fetchOne(homeworld);
-    world_name = world.name;
-    const persNew = {...pers, world_name};
-    addToPage(persNew);
-    console.log(persNew);
+    try {
+        const pers = await fetchOne(`https://www.swapi.tech/api/people/${num}`);
+        ({name ,height, gender, birth_year, homeworld} = pers)
+        const world = await fetchOne(homeworld);
+        world_name = world.name;
+        const persNew = {...pers, world_name};
+        addToPage(persNew);
+        console.log(persNew);
+    } catch {
+        displayProblem();
+    }
+    
     loading.classList.add("invisible");
 }
 
