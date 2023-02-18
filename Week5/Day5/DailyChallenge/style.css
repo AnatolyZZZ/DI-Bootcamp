@@ -1,0 +1,8 @@
+#converter {
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+    margin: auto;
+    gap: 20px;
+    align-items: center;
+}
