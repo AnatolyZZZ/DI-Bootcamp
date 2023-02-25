@@ -1,0 +1,45 @@
+#addtask {
+    display: flex;
+    flex-direction: column;
+    min-width: 300px;
+    max-width: 30%;
+    margin-left: 20px;
+}
+
+button {
+    margin-top: 10px;
+}
+
+.task {
+    border: 1px solid black;
+}
+.alert {
+    position: absolute;
+    display: inline-block;
+    left: calc(50% - 50px);
+    top: calc(50% - 50px);
+    width: 100px;
+    height: 100px;
+    z-index: 2;
+    border: 1px solid black;
+    background-color: antiquewhite;
+}
+
+.name {
+    display: inline;
+}
+
+.delayed {
+    border-color: red;
+    color: red;
+}
+.done {
+    border-color: gray;
+    color: gray;
+}
+
+
+.invisible {
+    display: none;
+}
+
