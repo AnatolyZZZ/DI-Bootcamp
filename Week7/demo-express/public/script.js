@@ -22,7 +22,7 @@ const searchWithParams = () => {
   fetch(`http://localhost:5000/api/products/${prod_id}`)
   .then(res => res.json())
   .then(data => {
-    console.log(data);
+     console.log(data);
      const arr = []
      arr.push(data)
      showProducts(arr)
