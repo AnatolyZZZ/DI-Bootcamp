@@ -2,7 +2,7 @@ import logo from './logo.svg';
 import './App.css';
 import Hello from './Hello'
 import Car from './Car'
-import Actors from './Actors';
+import Actor from './Actors';
 import './actor.css'
 // import asya from '../public/asya.jpg'
 
@@ -88,7 +88,8 @@ function App() {
         ))
       }
       <Car carBrand={brand} name="MqQeen" cars={listCars}/>
-      <Actors actors={actors}/>
+      {/* <Actors actors={actors}/> */}
+      <Actor/>
     </>
   );
 }
