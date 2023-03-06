@@ -13,27 +13,26 @@ class Vote extends React.Component {
             ]
         }
     }
-    increaseVote = (arg) => {
-        console.log("Fn called")
-        const ind = this.state.languages.findIndex(elt => elt.name === arg);
-        // let i = this.state.languages[ind].votes;
-        // i++;
-        // this.setState
-        this.state.languages[ind].votes++;
+    increaseVote = (arg, index) => {
+       const arr = [...this.state.languages];
+       console.log(arr[index]);
+       arr[index].votes++;
+       this.setState({languages : arr})
     }
     render () {
         return (<>
-            {this.state.languages.map(lang => (
-                <button
-                type="button"
-                className="plate" 
-                onClick={this.increaseVote(lang.name)}
-                key={lang.name}
-                >
-                    <p>Language: {lang.name}</p>
-                    <p>Votes: {lang.votes}</p>
-                </button>
-            ))}
+            {this.state.languages.map((lang,i) => {
+                    return (<div
+                    // type="button"
+                    className="plate" 
+                    onClick={() => this.increaseVote(lang.name , i)}
+                    key={i}
+                    >
+                        <p>Language: {lang.name}</p>
+                        <p>Votes: {lang.votes}</p>
+                    </div>)
+            }
+            )}   
         </>)
     }
 }
