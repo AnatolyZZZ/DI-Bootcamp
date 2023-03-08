@@ -1,5 +1,5 @@
 import React from "react";
-// import Child from "./Child"
+import Child from "./Child"
 
 class Color extends React.Component {
     constructor () {
@@ -27,22 +27,28 @@ class Color extends React.Component {
         console.log (`My favorite color is ${this.state.favoriteColor}`)
     }
     getSnapshotBeforeUpdate () {
-        console.log (`Before update : ${this.prevState}`)
+        // console.log (`Before update : ${this.prevState.favoriteColor}`)
         return null
     }
 
-    componentWillUnmount () {
-
+    removeChild = () => {
+        this.setState({show : false})
     }
 
     changeToBlue = () => {
         this.setState({favoriteColor :  "blue"})
     }
     render () {
-        // if (this.state.show) {
-        //     return <Child/>
-        // }
+        let the;
+        if (this.state.show) {
+             the = <>
+             <Child/>
+             <button onClick={this.removeChild}>Remove child</button>
+             </>
+             
+        } else the = ''
         return (<>
+        {the}
         <header>My favorite color is {this.state.favoriteColor}
         </header>
         <button onClick={this.changeToBlue}>Change fav color to blue</button>
