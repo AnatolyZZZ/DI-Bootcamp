@@ -6,7 +6,10 @@ class Color extends React.Component {
         super();
         this.state = {
             favoriteColor : "red",
-            show : true
+            show : true,
+            message : "",
+            messageFromSnapshot : "",
+            message2 : ""
         }
     }
     logStatus = () => {
@@ -23,11 +26,16 @@ class Color extends React.Component {
     shouldComponentUpdate () {
         return true
     }
-    componentDidUpdate () {
-        console.log (`My favorite color is ${this.state.favoriteColor}`)
+    componentDidUpdate (prevProps, prevState, snapshot) {
+        if (this.state.message === "") {
+            this.setState({message2 : this.state.messageFromSnapshot})
+            this.setState({message : `My favorite color was chaged from ${prevState.favoriteColor} to ${this.state.favoriteColor}`})
+        }
     }
-    getSnapshotBeforeUpdate () {
-        // console.log (`Before update : ${this.prevState.favoriteColor}`)
+    getSnapshotBeforeUpdate (prevProps, prevState) {
+        if (this.state.messageFromSnapshot === "") {
+            this.setState({messageFromSnapshot: `Now color is ${prevState.favoriteColor}`})
+        }
         return null
     }
 
@@ -52,6 +60,9 @@ class Color extends React.Component {
         <header>My favorite color is {this.state.favoriteColor}
         </header>
         <button onClick={this.changeToBlue}>Change fav color to blue</button>
+        {this.state.message}
+        <br/>
+        {this.state.messageFromSnapshot}
         </>)
     }
 }
