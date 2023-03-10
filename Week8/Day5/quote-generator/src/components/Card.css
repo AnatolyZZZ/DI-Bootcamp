@@ -1,0 +1,27 @@
+.quote {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    top: 150px;
+    background-color: rgb(244, 244, 244);
+    border-radius: 20px;
+    width: 50%;
+    min-width: 500px;
+    margin: auto;
+    padding: 30px;
+    /* margin-top: 300px; */
+}
+.author, .button {
+    align-self: flex-end;
+    margin-right: 30px;
+}
+
+.button {
+    height: 40px;
+    width : 100px;
+    color : white;
+    border-radius: 5px;
+}
+.author {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
