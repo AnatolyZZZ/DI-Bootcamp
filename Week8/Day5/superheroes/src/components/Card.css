@@ -1,0 +1,21 @@
+.card {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid black;
+    border-radius: 5px;
+    align-items: center;
+    padding: 10px 20px;
+}
+.mainpic {
+    /* display: inline-block; */
+    width: 150px;
+    height: 225px;
+}
+
+.card p {
+    margin-bottom: 0px;
+}
+
+.occupation {
+    margin-top: 0px;
+}
