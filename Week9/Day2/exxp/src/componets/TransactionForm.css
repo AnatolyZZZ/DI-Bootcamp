@@ -1,0 +1,4 @@
+.theForm {
+    display: flex;
+    flex-direction: column;
+}
