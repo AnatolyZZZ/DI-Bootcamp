@@ -1,24 +1,32 @@
-import logo from './logo.svg';
 import './App.css';
+import {useSelector} from "react-redux";
+import { useState, createContext, useEffect } from 'react';
+import {Admin} from "./components/Admin";
+import {Player} from "./components/Player";
+import { useDispatch } from 'react-redux';
+import { getGame } from './actions';
+
+export const AppContext = createContext(null);
+export const nullLevel = {
+    photos : "",
+    answers : "",
+    description : "",
+}
 
 function App() {
+  const isAdmin = useSelector(state => state.isAdmin);
+  const [levelIndex, setLevelIndex] = useState(null);
+  const [editmode, setEdit] = useState(false);
+  const [level, setLevel] = useState(nullLevel);
+  const dispatch = useDispatch();
+
+  useEffect (() => {dispatch(getGame())}, [])
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <AppContext.Provider value={{levelIndex, setLevelIndex, editmode, setEdit, level, setLevel}}>
+      {isAdmin ?  <Admin/> : <Player/>}
+    </AppContext.Provider>
+      
   );
 }
 
