@@ -138,7 +138,7 @@ function displaySearch () {
     searchImg.classList.remove("invisible");
     if (arrObj.length >0) {
         arrObj[current][0].classList.add("invisible");
-        arrObj[current][0].classList.add("invisible");
+        arrObj[current][1].classList.add("invisible");
     }
 }
 
@@ -146,7 +146,7 @@ function undisplaySearch () {
     searchImg.classList.add("invisible");
     if (arrObj.length >0) {
         arrObj[current][0].classList.remove("invisible");
-        arrObj[current][0].classList.remove("invisible");
+        arrObj[current][1].classList.remove("invisible");
     }
 }
 
