@@ -3,7 +3,7 @@ import {db} from '../config/db.js';
 export const createLevel = async (level) => {
     return db('levels')
     .insert(level)
-    .returning('id')
+    .returning('*')
 }
 
 export const updateLevel = async (level) => {
@@ -29,4 +29,5 @@ export const getLevel = async (id) => {
 export const getAllLevels = async () => {
     return db('levels')
     .select('id')
+    .orderBy('id')
 }

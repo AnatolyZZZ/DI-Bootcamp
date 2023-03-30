@@ -1,14 +1,10 @@
 import {createLevel, updateLevel, deleteLevel, getLevel, getAllLevels} from '../modules/Levels.js'
+import fs from 'fs'
 
 export const _createLevel = async (req, res) => {
     try {
-        // console.log(typeof(req.body.photos));
-        // console.log(req.body.photos);
-        console.log('req.body =>',req.body.id, req.body.description);
-        console.log('req.body =>',req.body);
-        // req.body.photos = JSON.stringify(req.body.photos);
-        const id = await createLevel(req.body)
-        res.status(200).json(id)
+        const level = await createLevel({...req.body, photo : req.file ? req.file.filename : ""})
+        res.status(200).json(level)
     } catch (error) {
         console.log(error);
         res.status(500).json({msg : "Creating level failed"})
@@ -28,7 +24,13 @@ export const _getLevel = async (req, res) => {
 }
 export const _delLevel = async (req, res) => {
     try {
-        const level = await deleteLevel(req.body.id)
+        const level = await deleteLevel(req.body.id);
+        if (req.body.photo) {
+            fs.unlink(`./uploads/${req.body.photo}`, function (err) {
+                if (err) throw err;
+            });
+        }
+
         res.status(200).json({msg : "Deleted successfuly"})
     } catch (error) {
         console.log(error);
@@ -38,9 +40,31 @@ export const _delLevel = async (req, res) => {
 
 export const _updateLevel = async (req, res) => {
     try {
-        console.log('req.body answers=>',req.body.answers);
-        console.log('req.body =>',req.body);
-        const level = await updateLevel({...req.body, photo : req.file ? req.file.filename : ""})
+        console.log('req.body=>',req.body);
+        console.log('req.body.photo=>',req.body.photo);
+        console.log('req.body imagedeleted =>',req.body.imagedeleted);
+        // if file is send have to delete previous
+        let level;
+        if (req.file) {
+            if (req.body.photo) {
+                fs.unlink(`./uploads/${req.body.photo}`, function (err) {
+                    if (err) throw err;
+                });
+            }
+             level = await updateLevel({...req.body, photo : req.file.filename})
+        } else {
+            // if manualy deleted photo in frontend have to delete previous photo
+            if (req.body.imagedeleted === "true") {
+
+                fs.unlink(`./uploads/${req.body.photo}`, function (err) {
+                    if (err) throw err;
+                }); 
+                 level = await updateLevel({...req.body, photo : ""})
+            } else {
+                 level = await updateLevel(req.body)
+            }
+        }
+    
         res.status(200).json(level)
     } catch (error) {
         console.log(error);

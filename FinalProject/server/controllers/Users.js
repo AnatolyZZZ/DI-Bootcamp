@@ -1,6 +1,7 @@
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 import dotenv from 'dotenv'
+import {getAllLevels} from '../modules/Levels.js'
 
 dotenv.config();
 
@@ -16,7 +17,8 @@ export const _newUser = async (req, res) => {
         password : hashPassword,
     }
     if (!isAdmin) {
-        newuser['cur_level'] = 0;
+        const minLevel = await getAllLevels()[0]
+        newuser['cur_level'] = minLevel;
     }
     try {
         const np =  isAdmin ?  await newAdmin(newuser) : await newPlayer(newuser)
@@ -38,7 +40,7 @@ export const login = async (req, res) => {
             if (!match) return res.status(400).json({msg: "Invalid password"})
         console.log(user)
         const userid = user[0].id;
-        const accessToken = jwt.sign({userid, email}, process.env.ACCESS_TOKEN_SECRET, {expiresIn : '600s'})
+        const accessToken = jwt.sign({userid, email, isAdmin}, process.env.ACCESS_TOKEN_SECRET, {expiresIn : '600s'})
 
         res.cookie('accessToken', accessToken, {
             httpOnly: true,

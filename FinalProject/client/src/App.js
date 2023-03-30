@@ -8,13 +8,12 @@ import { getGame } from './actions';
 
 export const AppContext = createContext(null);
 export const nullLevel = {
-    photos : [],
-    answers : [],
+    photo : "",
+    answers : "",
     description : "",
+    imagedeleted : "false",
     id : -1
 }
-nullLevel.photos.push('../images/Asya.jpeg')
-nullLevel.photos.push('../images/Tolya.jpeg')
 
 function App() {
   const isAdmin = useSelector(state => state.isAdmin);
