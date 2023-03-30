@@ -18,3 +18,4 @@ server.listen(process.env.PORT, ()=>{
 
 server.use('/api/users', user_router);
 server.use('/api/levels', level_router);
+server.use('/uploads', express.static('uploads'));

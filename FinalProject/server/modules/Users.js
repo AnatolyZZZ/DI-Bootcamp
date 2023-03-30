@@ -19,3 +19,15 @@ export const changeLevel = async (id, new_level) => {
     .returning('*')
 }
 
+export const getPlayer = async (email) => {
+    return db('players')
+    .select('*')
+    .where({'email' : email})
+}
+
+export const getAdmin = async (email) => {
+    return db('admins')
+    .select('*')
+    .where({'email' : email})
+}
+

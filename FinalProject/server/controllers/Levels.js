@@ -2,6 +2,11 @@ import {createLevel, updateLevel, deleteLevel, getLevel, getAllLevels} from '../
 
 export const _createLevel = async (req, res) => {
     try {
+        // console.log(typeof(req.body.photos));
+        // console.log(req.body.photos);
+        console.log('req.body =>',req.body.id, req.body.description);
+        console.log('req.body =>',req.body);
+        // req.body.photos = JSON.stringify(req.body.photos);
         const id = await createLevel(req.body)
         res.status(200).json(id)
     } catch (error) {
@@ -13,6 +18,8 @@ export const _createLevel = async (req, res) => {
 export const _getLevel = async (req, res) => {
     try {
         const level = await getLevel(req.params.id)
+        // console.log(typeof(level[0].photos));
+        // console.log(level[0].photos);
         res.status(200).json(level)
     } catch (error) {
         console.log(error);
@@ -31,7 +38,9 @@ export const _delLevel = async (req, res) => {
 
 export const _updateLevel = async (req, res) => {
     try {
-        const level = await updateLevel(req.body)
+        console.log('req.body answers=>',req.body.answers);
+        console.log('req.body =>',req.body);
+        const level = await updateLevel({...req.body, photo : req.file ? req.file.filename : ""})
         res.status(200).json(level)
     } catch (error) {
         console.log(error);

@@ -1,6 +1,10 @@
 import bcrypt from 'bcrypt';
+import jwt from 'jsonwebtoken';
+import dotenv from 'dotenv'
 
-import {newPlayer, changeLevel, newAdmin} from '../modules/Users.js'
+dotenv.config();
+
+import {newPlayer, changeLevel, newAdmin, getAdmin, getPlayer} from '../modules/Users.js'
 
 export const _newUser = async (req, res) => {
     const {email, password, isAdmin} = req.body;
@@ -20,6 +24,32 @@ export const _newUser = async (req, res) => {
     } catch (error) {
         console.log(error);
         res.status(403).json({msg : "Email already exists"})
+    }
+}
+
+export const login = async (req, res) => {
+    const {email, password, isAdmin} = req.body;
+    try {
+        const user = isAdmin ? await getAdmin(email) : await getPlayer(email);
+        if (user.length === 0) {
+            res.status(403).json({msg : "No such email"})
+        }
+        const match = await bcrypt.compare(req.body.password, user[0].password);
+            if (!match) return res.status(400).json({msg: "Invalid password"})
+        console.log(user)
+        const userid = user[0].id;
+        const accessToken = jwt.sign({userid, email}, process.env.ACCESS_TOKEN_SECRET, {expiresIn : '600s'})
+
+        res.cookie('accessToken', accessToken, {
+            httpOnly: true,
+            maxAge: 600 * 1000
+          })
+
+        res.json({accessToken});
+
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({msg : "Internal error"})
     }
 }
 
