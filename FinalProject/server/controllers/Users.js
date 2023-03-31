@@ -3,6 +3,7 @@ import jwt from 'jsonwebtoken';
 import dotenv from 'dotenv'
 import {getAllLevels} from '../modules/Levels.js'
 
+
 dotenv.config();
 
 import {newPlayer, changeLevel, newAdmin, getAdmin, getPlayer} from '../modules/Users.js'
@@ -66,4 +67,16 @@ export const _changeLevel = async (req, res) => {
         res.status(403).json({msg : "Levelup failed"})
     }
 }
+
+export const getToken = async (req, res) => {
+    const {userid, isAdmin, email} = req.body;
+    const accessToken = jwt.sign({userid, email, isAdmin}, process.env.ACCESS_TOKEN_SECRET, {expiresIn : '600s'})
+    res.cookie('accessToken', accessToken, {
+        httpOnly: true,
+        maxAge: 600 * 1000
+    })
+    res.status(200).json({accessToken})
+}
+
+
 
