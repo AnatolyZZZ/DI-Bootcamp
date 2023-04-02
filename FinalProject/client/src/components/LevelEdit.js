@@ -1,39 +1,17 @@
 import { useContext, useEffect, useState } from "react";
-import { AppContext, nullLevel } from "../App";
+import { AppContext } from "../App";
 import './LevelEdit.css';
 import { useDispatch } from 'react-redux';
 import { getGame} from "../actions";
 
 export const LevelEdit = (props) => {
-    const {levelIndex, editmode, setEdit, level, setLevel, setLevelIndex} = useContext(AppContext);
+    const {levelIndex, editmode, setEdit, level, setLevel, setLevelIndex, getLevel} = useContext(AppContext);
     const dispatch = useDispatch();
 
-    // const photos = JSON.parse(level.photos);
-    // console.log(level, photos);
-    // const a = [];
-    // a.push('www.1.ru')
-    // console.log(JSON.stringify(a))
-
-    const getLevel = async () => {
-        if (levelIndex !== -1) {
-            fetch(`api/levels/${levelIndex}`)
-            .then(res => res.json())
-            .then(data => {
-             setLevel({...data[0], imagedeleted : "false"});
-            })
-            .catch((error) => {
-                console.error("Error:", error);
-              })
-        } else {
-            setLevel({...nullLevel})
-        }
-        // console.log(level.photo)  
-    }
 
     useEffect(() => {getLevel()}, [levelIndex])
     
     const saveHandler = async (e) => {
-        console.log(level, levelIndex, e.target);
         e.preventDefault()
         // same handler for new level and edditing, if levelIndex -1 - POST, else PUT, and if 
         // not in edit mode this button switch to editmode

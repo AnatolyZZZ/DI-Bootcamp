@@ -1,10 +1,8 @@
-// import {dotenv} from 'dotenv'
-export const GET_PLAYER = 'GET_PLAYER', GET_ADMIN = 'GET_ADMIN', GET_GAME = 'GET_GAME', GET_LEVEL = 'GET_LEVEL', LEVEL_UP = 'LEVEL_UP'
-// dotenv.config({path : '../../.env'})
+export const GET_GAME = 'GET_GAME', LEVEL_UP = 'LEVEL_UP', SET_TOKEN='SET_ACCESS_TOKEN', SET_ADMIN = "SET_ADMIN", SET_LEVEL = 'SET_LEVEL', SET_ID = 'SET_ID'
+
 
 export const getGame = () => (dispatch) => {
-    // fetch(`${process.SERVER}:${process.SERVER_PORT}/api/levels`)
-    fetch('http://localhost:5002/api/levels')
+    fetch('/api/levels')
     .then(res => res.json())
     .then(data => {
         dispatch({
@@ -14,3 +12,33 @@ export const getGame = () => (dispatch) => {
     })
     .catch (error => console.log(error))
 }
+
+export const setToken = (token) => {
+    return {
+        type : SET_TOKEN,
+        payload : token
+    }
+}
+
+export const setAdmin = (admin) => {
+    return {
+        type : SET_ADMIN,
+        payload : admin
+    }
+}
+
+export const setLevel = (level) => {
+    return {
+        type : SET_LEVEL,
+        payload : level
+    }
+}
+
+export const setUserId = (id) => {
+    return {
+        type : SET_ID,
+        payload : id
+    }
+}
+
+

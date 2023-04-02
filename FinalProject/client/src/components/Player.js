@@ -1,3 +1,19 @@
+import { DisplayLevel } from "./DisplayLevel"
+import { AnswerCheck } from "./AnswerCheck";
+import { useContext, useEffect } from "react";
+import { useSelector } from "react-redux";
+import { AppContext } from "../App";
+
 export const Player = (props) => {
-    return <p>Player page</p>
+    const {levelIndex, setLevelIndex, getLevel} = useContext(AppContext);
+    const playerLevel = useSelector(state => state.level);
+       
+    useEffect(()=>{setLevelIndex(playerLevel)}, []);
+    useEffect(()=>{getLevel()},[levelIndex]);
+    return <>
+         <p>Player page</p>
+        <DisplayLevel/>
+        <AnswerCheck/>
+    </>
+   
 } 

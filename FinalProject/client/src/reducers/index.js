@@ -1,18 +1,24 @@
-import { GET_PLAYER , GET_ADMIN , GET_GAME , GET_LEVEL , LEVEL_UP } from '../actions'
+import { GET_GAME , SET_LEVEL, LEVEL_UP, SET_TOKEN, SET_ADMIN, SET_ID} from '../actions'
 const initialState = {
-    user : {},
+    level : 0,
     levels : [],
-    isAdmin : true
+    id : 0,
+    isAdmin : true,
+    accessToken : ""
 }
 
 export const reducer = (state=initialState, action={}) => {
     switch (action.type) {
-        case GET_PLAYER : 
-            return {...state, user : action.payload, isAdmin : false}
-        case GET_ADMIN : 
-            return {...state, user : action.payload, isAdmin : true}
         case GET_GAME : 
             return {...state, levels : action.payload}
+        case SET_TOKEN :
+            return {...state, accessToken : action.payload}
+        case SET_ADMIN :
+            return {...state, isAdmin : action.payload}
+        case SET_LEVEL :
+            return {...state, level : action.payload}
+        case SET_ID :
+            return {...state, id : action.payload}
         default:
             return {...state}
     }

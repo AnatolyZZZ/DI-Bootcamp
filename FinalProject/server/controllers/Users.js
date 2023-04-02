@@ -18,8 +18,9 @@ export const _newUser = async (req, res) => {
         password : hashPassword,
     }
     if (!isAdmin) {
-        const minLevel = await getAllLevels()[0]
-        newuser['cur_level'] = minLevel;
+        const levels = await getAllLevels()
+        console.log('min level =>', levels)
+        newuser['cur_level'] = levels[0].id;
     }
     try {
         const np =  isAdmin ?  await newAdmin(newuser) : await newPlayer(newuser)
@@ -35,11 +36,10 @@ export const login = async (req, res) => {
     try {
         const user = isAdmin ? await getAdmin(email) : await getPlayer(email);
         if (user.length === 0) {
-            res.status(403).json({msg : "No such email"})
+            return res.status(403).json({msg : "No such email"})
         }
-        const match = await bcrypt.compare(req.body.password, user[0].password);
+        const match = await bcrypt.compare(password, user[0].password);
             if (!match) return res.status(400).json({msg: "Invalid password"})
-        console.log(user)
         const userid = user[0].id;
         const accessToken = jwt.sign({userid, email, isAdmin}, process.env.ACCESS_TOKEN_SECRET, {expiresIn : '600s'})
 
@@ -47,8 +47,7 @@ export const login = async (req, res) => {
             httpOnly: true,
             maxAge: 600 * 1000
           })
-
-        res.json({accessToken});
+        isAdmin ? res.json({accessToken, userid}) : res.json({accessToken, userid, cur_level : user[0].cur_level})
 
     } catch (error) {
         console.log(error);
