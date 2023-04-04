@@ -1,4 +1,5 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
+import { AppContext } from "../App";
 import {useDispatch} from 'react-redux';
 import { Link, useNavigate } from "react-router-dom";
 import { setToken, setAdmin, setUserId, setLevel } from "../actions";
@@ -6,6 +7,7 @@ import {FormControl,FormControlLabel, RadioGroup, Radio, FormLabel, Button, Text
 
 export const LoginRegister = ({title}) => {
     const [msg, setMsg] = useState('');
+    const {setLevelIndex} = useContext(AppContext);
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [admin, _setAdmin] = useState('false');
@@ -38,9 +40,14 @@ export const LoginRegister = ({title}) => {
                     const isAdmin = admin === 'true' ? true : false
                     dispatch(setToken(data.accessToken));
                     dispatch(setAdmin(isAdmin));
-                    dispatch(setLevel(data.cur_level));
                     dispatch(setUserId(data.userid));
-                    isAdmin ? navigate('/admin') : navigate('/game')
+                    if (isAdmin) {
+                        navigate('/admin');
+                    }  else {
+                        dispatch(setLevel(data.cur_level));
+                        setLevelIndex(data.cur_level);
+                        navigate('/game');
+                    }
                 }
             } catch (error) {
                 console.log(error);
