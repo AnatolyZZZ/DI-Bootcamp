@@ -68,7 +68,9 @@ export const _changeLevel = async (req, res) => {
 }
 
 export const getToken = async (req, res) => {
-    const {userid, isAdmin, email} = req.body;
+    const {userid, isAdmin, email} = req;
+    // console.log('in get token', {userid, isAdmin, email})
+    // console.log('in get token req.body', req)
     const accessToken = jwt.sign({userid, email, isAdmin}, process.env.ACCESS_TOKEN_SECRET, {expiresIn : '600s'})
     res.cookie('accessToken', accessToken, {
         httpOnly: true,

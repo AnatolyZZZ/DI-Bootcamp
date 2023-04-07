@@ -2,9 +2,11 @@ import './App.css';
 import {useSelector} from "react-redux";
 import { useState, createContext, useEffect } from 'react';
 import {Admin} from "./components/Admin";
+import { Auth } from './auth/Auth';
 import {Player} from "./components/Player";
 import { useDispatch } from 'react-redux';
 import { getGame } from './actions';
+import { setToken, setAdmin, setUserId, setPlayerLevel } from "./actions";
 import { Link, Route, Routes } from 'react-router-dom';
 import {LoginRegister} from '../src/components/LoginRegister';
 
@@ -40,7 +42,13 @@ function App() {
     // console.log(level.photo)  
 }
 
-  useEffect (() => {dispatch(getGame())}, [])
+  useEffect (() => {
+    dispatch(setToken(localStorage.getItem("accessToken")));
+    dispatch(setAdmin(localStorage.getItem("isAdmin")));
+    dispatch(setUserId(localStorage.getItem("userId")));
+    dispatch(setPlayerLevel(localStorage.getItem("playerLevel")));
+    dispatch(getGame());
+  }, [])
 
   return (
     <AppContext.Provider value={{levelIndex, setLevelIndex, editmode, setEdit, level, setLevel, getLevel}}>
@@ -52,7 +60,7 @@ function App() {
       <Routes>
         <Route path='/login' element={<LoginRegister title='Login'/>}/>
         <Route path='/register' element={<LoginRegister title='Register'/>} />
-        <Route path='/admin' element={<Admin/>} />
+        <Route path='/admin' element={<Auth><Admin/></Auth>} />
         <Route path='/game' element={<Player/>} />
       </Routes>
 

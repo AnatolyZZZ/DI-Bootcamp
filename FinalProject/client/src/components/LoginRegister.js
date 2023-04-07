@@ -2,7 +2,7 @@ import { useEffect, useState, useContext } from "react";
 import { AppContext } from "../App";
 import {useDispatch} from 'react-redux';
 import { Link, useNavigate } from "react-router-dom";
-import { setToken, setAdmin, setUserId, setLevel } from "../actions";
+import { setToken, setAdmin, setUserId, setPlayerLevel } from "../actions";
 import {FormControl,FormControlLabel, RadioGroup, Radio, FormLabel, Button, TextField, Box } from '@mui/material';
 
 export const LoginRegister = ({title}) => {
@@ -44,7 +44,7 @@ export const LoginRegister = ({title}) => {
                     if (isAdmin) {
                         navigate('/admin');
                     }  else {
-                        dispatch(setLevel(data.cur_level));
+                        dispatch(setPlayerLevel(data.cur_level));
                         setLevelIndex(data.cur_level);
                         navigate('/game');
                     }

@@ -2,7 +2,6 @@ import { DisplayLevel } from "./DisplayLevel"
 import { AnswerCheck } from "./AnswerCheck";
 import { useContext, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { setToken, setAdmin, setUserId, setLevel } from "../actions";
 import { AppContext } from "../App";
 
 export const Player = (props) => {
@@ -11,7 +10,7 @@ export const Player = (props) => {
        
     useEffect(()=>{
         console.log(playerLevel);
-        setLevelIndex(playerLevel)}, []);
+        setLevelIndex(playerLevel)}, [playerLevel]);
     useEffect(()=>{
         console.log(levelIndex);
         getLevel()},[levelIndex]);

@@ -2,7 +2,7 @@ import { AppContext } from "../App";
 import { useContext, useState } from "react";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
-import { setLevel } from "../actions";
+import { setPlayerLevel } from "../actions";
 
 export const AnswerCheck = (props) => {
     const {level, setLevelIndex} = useContext(AppContext);
@@ -12,10 +12,9 @@ export const AnswerCheck = (props) => {
     const cur_level = useSelector(state => state.level);
     const userid = useSelector(state => state.id);
     console.log('ansers=>',level.answers);
-    const ind = levels.findIndex(elt => elt.id ===
+    const ind = levels.findIndex(elt => elt.id ==
         cur_level);
     const dispatch = useDispatch();
-
     const levelUp = async () => {
         console.log('levels =>', levels)
         console.log('cur_level =>',cur_level);
@@ -31,7 +30,7 @@ export const AnswerCheck = (props) => {
         }
        const res = await fetch('/api/users/lvl', para);
        if (res.ok === true) {
-        dispatch(setLevel(next_level));
+        dispatch(setPlayerLevel(next_level));
         setLevelIndex(next_level);
        }
     }

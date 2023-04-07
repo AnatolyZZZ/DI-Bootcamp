@@ -1,6 +1,7 @@
 import express  from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
+import cookieParser from 'cookie-parser';
 
 import {user_router} from './routes/Users.js';
 import { level_router } from './routes/Levels.js';
@@ -9,6 +10,7 @@ dotenv.config();
 
 const server = express();
 server.use(cors());
+server.use(cookieParser());
 server.use(express.urlencoded({extended:true}));
 server.use(express.json())
 

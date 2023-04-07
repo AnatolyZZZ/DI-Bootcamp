@@ -27,7 +27,7 @@ export const setAdmin = (admin) => {
     }
 }
 
-export const setLevel = (level) => {
+export const setPlayerLevel = (level) => {
     return {
         type : SET_LEVEL,
         payload : level

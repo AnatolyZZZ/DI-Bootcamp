@@ -5,15 +5,14 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 export const VerifyToken = (req, res, next) => {
-    const accessToken = req.cookies.accessToken ||
-    req.headers['x-access-token']
+    const accessToken = req.cookies.accessToken || req.headers['x-access-token']
 
     if(!accessToken) return res.status(401).json({msg:'permision denied!'});
 
     jwt.verify(accessToken, process.env.ACCESS_TOKEN_SECRET, async (err,decoded)=>{
         
         if(err) return res.status(403).json({msg:'verify token faild!'});
-
+        // console.log('decoded =>',decoded);
         req.email = decoded.email;
         req.userid = decoded.userid;
         req.isAdmin = decoded.isAdmin;
