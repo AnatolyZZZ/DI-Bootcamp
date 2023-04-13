@@ -1,4 +1,4 @@
-export const GET_GAME = 'GET_GAME', LEVEL_UP = 'LEVEL_UP', SET_TOKEN='SET_ACCESS_TOKEN', SET_ADMIN = "SET_ADMIN", SET_LEVEL = 'SET_LEVEL', SET_ID = 'SET_ID'
+export const GET_GAME = 'GET_GAME', SET_TOKEN='SET_ACCESS_TOKEN', SET_ADMIN = "SET_ADMIN", SET_LEVEL = 'SET_LEVEL', SET_ID = 'SET_ID'
 
 
 export const getGame = () => (dispatch) => {

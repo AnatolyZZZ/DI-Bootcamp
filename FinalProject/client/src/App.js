@@ -1,10 +1,9 @@
 import './App.css';
-import {useSelector} from "react-redux";
+import {useSelector, useDispatch} from "react-redux";
 import { useState, createContext, useEffect } from 'react';
 import {Admin} from "./components/Admin";
 import { Auth } from './auth/Auth';
 import {Player} from "./components/Player";
-import { useDispatch } from 'react-redux';
 import { getGame } from './actions';
 import { setToken, setAdmin, setUserId, setPlayerLevel } from "./actions";
 import { Link, Route, Routes } from 'react-router-dom';
@@ -16,6 +15,7 @@ export const nullLevel = {
     answers : "",
     description : "",
     imagedeleted : "false",
+    file : "",
     id : -1
 }
 
@@ -29,9 +29,11 @@ function App() {
   const getLevel = async () => {
     if (levelIndex !== -1) {
         fetch(`api/levels/${levelIndex}`)
-        .then(res => res.json())
+        .then(res => 
+          res.json()
+          )
         .then(data => {
-         setLevel({...data[0], imagedeleted : "false"});
+         setLevel({...data[0], imagedeleted : "false", file : ""});
         })
         .catch((error) => {
             console.error("Error:", error);
@@ -44,11 +46,11 @@ function App() {
 
   useEffect (() => {
     dispatch(setToken(localStorage.getItem("accessToken")));
-    dispatch(setAdmin(localStorage.getItem("isAdmin")));
-    dispatch(setUserId(localStorage.getItem("userId")));
-    dispatch(setPlayerLevel(localStorage.getItem("playerLevel")));
+    dispatch(setAdmin(JSON.parse(localStorage.getItem("isAdmin"))));
+    dispatch(setUserId(JSON.parse(localStorage.getItem("userId"))));
+    dispatch(setPlayerLevel(JSON.parse(localStorage.getItem("playerLevel"))));
     dispatch(getGame());
-  }, [])
+  }, [level])
 
   return (
     <AppContext.Provider value={{levelIndex, setLevelIndex, editmode, setEdit, level, setLevel, getLevel}}>
@@ -61,7 +63,7 @@ function App() {
         <Route path='/login' element={<LoginRegister title='Login'/>}/>
         <Route path='/register' element={<LoginRegister title='Register'/>} />
         <Route path='/admin' element={<Auth><Admin/></Auth>} />
-        <Route path='/game' element={<Player/>} />
+        <Route path='/game' element={<Auth><Player/></Auth>} />
       </Routes>
 
     </AppContext.Provider>

@@ -13,7 +13,8 @@ export const LoginRegister = ({title}) => {
     const [admin, _setAdmin] = useState('false');
     const dispatch = useDispatch();
     const navigate = useNavigate();
-    useEffect(()=> {setMsg('')}, [email+password+admin]);
+    const smthChange = email+password+admin;
+    useEffect(()=> {setMsg('')}, [smthChange]);
 
 
     const handleAction = async (title) => {
@@ -68,9 +69,9 @@ export const LoginRegister = ({title}) => {
     }
 
 
-    return (<>
+    return (<div style={{padding: '2rem'}}>
     <h3>{title}</h3>
-    <Box component='form' sx={{m:1}} noValidate>
+    <Box component='form' sx={{m:1, display:'flex', flexDirection : 'column'}} noValidate>
         <TextField sx={{m:1}} id='email' name='email' label='Enter email' variant='outlined' onChange={(e) => setEmail(e.target.value)}/>
         <TextField sx={{m:1}} id='password' name='password' label='Enter password' variant='outlined' onChange={(e) => setPassword(e.target.value)}/>
         <FormControl>
@@ -102,5 +103,5 @@ export const LoginRegister = ({title}) => {
         }
     </div>
 
-    </>)
+    </div>)
 }

@@ -5,12 +5,12 @@ import './GameMenu.css'
 
 export const GameMenu = (props) => {
     const levels = useSelector (state => state.levels);
-    const {setLevelIndex, setEdit} = useContext(AppContext)
+    const {setLevelIndex, setEdit, levelIndex} = useContext(AppContext)
     
     return <div className="menu">
-            {levels.map(elt => {return <div onClick={(e) => {setLevelIndex(elt.id); setEdit(false)}} className="levelBtn" key={elt.id}>{elt.id}</div>})}
+            {levels.map((elt, index) => {return <div onClick={(e) => {setLevelIndex(elt.id); setEdit(false)}} className={`levelBtn ${elt.id == levelIndex ? 'selected' : ""}`} key={elt.id}>Level {index + 1}</div>})}
             
-            <div className="levelBtn" onClick={(e) => {setEdit(true); setLevelIndex(-1)}}>New level</div>
+            <div className={`levelBtn ${-1 === levelIndex ? 'selected': ""}`} onClick={(e) => {setEdit(true); setLevelIndex(-1)}}>Create new level</div>
          </div>
     
 }

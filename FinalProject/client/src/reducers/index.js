@@ -1,4 +1,4 @@
-import { GET_GAME , SET_LEVEL, LEVEL_UP, SET_TOKEN, SET_ADMIN, SET_ID} from '../actions'
+import { GET_GAME , SET_LEVEL, SET_TOKEN, SET_ADMIN, SET_ID} from '../actions'
 const initialState = {
     level : 0,
     levels : [],
