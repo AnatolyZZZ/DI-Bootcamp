@@ -44,7 +44,7 @@ export const LevelEdit = (props) => {
             if (res.ok === true) {
                 const data = await res.json()
                 // console.log('data2 =>', data)
-                setLevel({...data[0], file : ""});
+                setLevel({...data[0], file : "", imagedeleted : false});
                 setLevelIndex(data[0].id)
                 setEdit(false);
                 // want to clear file input after submiting
@@ -82,7 +82,7 @@ export const LevelEdit = (props) => {
     }
 
     // if we discard changes have to get level from server
-    const cancelBtn = editmode ? <button className='editBtn' onClick={(e) => {
+    const cancelBtn = editmode ? <button className='discardBtn' onClick={(e) => {
         getLevel();
         setFileIndex(Date.now());
         setEdit(false);
@@ -95,14 +95,14 @@ export const LevelEdit = (props) => {
     }}>Delete level</button> : <></>
 
     const editBtn = 
-    <button type="submit">
+    <button type="submit" className="editBtn">
         {levelIndex === -1 ? 'Create new level' : editmode ? 'Save changes' : 'Edit level'}
     </button> 
 
 
     return <div className="leveledit">
     {/* { levelIndex !== -1 && (editmode  ? <p>You are edditing level N {levelIndex}</p> : <p>This is level  {levelIndex}</p>)} */}
-    {(level.photo || level.file) && (level.imagedeleted==="false") && <div className="mainpicdiv">
+    {(level.photo || level.file) && (level.imagedeleted=== false) && <div className="mainpicdiv">
     <img 
         src={level.file === '' ? '/uploads/' + level.photo : level.file}
         className="mainpic"
@@ -123,7 +123,7 @@ export const LevelEdit = (props) => {
         <input type='hidden' value={level.photo} name='photo'/>
         <input type='hidden' value={level.imagedeleted} name='imagedeleted'/>
         
-        <div className="form-part">
+        {editmode && <div className="form-part">
         <label htmlFor='file'>Upload image</label>
         <input 
             key={fileindex}
@@ -132,8 +132,8 @@ export const LevelEdit = (props) => {
             disabled={!editmode}
             placeholder="Add riddle image"
             accept="image/*"
-            onChange={(e) => setLevel({...level, file : URL.createObjectURL(e.target.files[0]), imagedeleted : 'false'})}/>
-        </div>
+            onChange={(e) => setLevel({...level, file : URL.createObjectURL(e.target.files[0]), imagedeleted : false})}/>
+        </div>}
 
         <div className="form-part">
             <label htmlFor='description'>Level description</label>
@@ -158,6 +158,7 @@ export const LevelEdit = (props) => {
                 value={level.answers} 
                 disabled={!editmode}
                 autoComplete='off'
+                className="answers"
             />
         </div>
         {editBtn}

@@ -11,6 +11,7 @@
     padding: 10px;
     border-radius: 15px;
     background-color: rgb(213, 213, 32);
+    cursor: pointer;
 }
 .selected {
     background-color: orange;
