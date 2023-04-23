@@ -47,6 +47,7 @@ export const LevelEdit = (props) => {
                 setLevel({...data[0], file : "", imagedeleted : false});
                 setLevelIndex(data[0].id)
                 setEdit(false);
+                console.log(data);
                 // want to clear file input after submiting
                 e.target.file.value = '';
             } else {
@@ -131,7 +132,7 @@ export const LevelEdit = (props) => {
             name="file"
             disabled={!editmode}
             placeholder="Add riddle image"
-            accept="image/*"
+            accept="image/png, image/jpeg"
             onChange={(e) => setLevel({...level, file : URL.createObjectURL(e.target.files[0]), imagedeleted : false})}/>
         </div>}
 
