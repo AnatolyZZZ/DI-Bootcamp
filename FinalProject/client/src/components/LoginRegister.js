@@ -3,6 +3,7 @@ import { AppContext } from "../App";
 import {useDispatch} from 'react-redux';
 import { Link, useNavigate } from "react-router-dom";
 import { setToken, setAdmin, setUserId, setPlayerLevel } from "../actions";
+import './Login.css'
 import {FormControl,FormControlLabel, RadioGroup, Radio, FormLabel, Button, TextField, Box } from '@mui/material';
 
 export const LoginRegister = ({title}) => {
@@ -69,7 +70,7 @@ export const LoginRegister = ({title}) => {
     }
 
 
-    return (<div style={{padding: '2rem'}}>
+    return (<div style={{padding: '2rem'}} id='loginregister'>
     <h3>{title}</h3>
     <Box component='form' sx={{m:1, display:'flex', flexDirection : 'column'}} noValidate>
         <TextField sx={{m:1}} id='email' name='email' label='Enter email' variant='outlined' onChange={(e) => setEmail(e.target.value)}/>
@@ -89,7 +90,7 @@ export const LoginRegister = ({title}) => {
         </FormControl>
     </Box>
 
-    <Button variant="contained" onClick={()=>handleAction(title)}>{title}</Button>
+    <Button variant="contained" onClick={()=>handleAction(title)} id='login_button'>{title}</Button>
 
     <div>
         <p>{msg}</p>
